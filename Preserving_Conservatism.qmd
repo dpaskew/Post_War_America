@@ -1,0 +1,63 @@
+---
+title: "Difference in U.S. Expenditure Pay for Recreational Workers in Post-World War II North and South and Relation to Culture"
+name: David P. Askew
+date: 5/1/2024
+format: html
+editor: visual
+---
+
+### David P. Askew
+
+#### Digital Methods 8510
+
+#### Amanda Regan
+
+## What is the Purpose of this Project?
+
+This project will answer a historical question of what the difference is in pay between recreational workers in New England and Southern states and why does this difference exist? It is certain through using the tool of data visualization and topic modeling, exploring the differences between various states and their expenditures is important and relates to culture. Geography is a major element involved in recognizing the inherent divide between Southern and Northern culture related to pay in expenditures. The project will also address how one should understand the difference in pay as it relates to states with urban and rural geography. This will be accomplished by examining the recreational.data and using these tools to explain the pay gap.
+
+```{r}
+sc.rec <- recreational.data %>% group_by(state) %>% summarize(state.expenditures = sum(total_expenditures))
+ggplot(sc.rec, aes(x = state, y = state.expenditures )) +
+  geom_col() + ggtitle("Differences in Expenditure Between States")
+```
+
+Based on this graph, it can be observed how states like Pennsylvania and Texas pay more because a few factors. One involves the amount of inhabitable land both have compared to smaller or less populated states like Rhode Island, South Carolina, and South Dakota. Upon observing a bar plot of South Carolina, it shows very little expenditure in the recreational data. According to the *South Carolina Encyclopedia,* prior to 1967, the South Carolina Department of Parks,
+
+```{r}
+rec.byyear <- recreational.data %>% filter(state == "CT" | state == "NY" | state == "SC") %>% group_by(state, year) %>% summarize(count = n())
+ggplot(rec.byyear, aes(x = state, y = count)) +
+  geom_bar()
+```
+
+```{r}
+
+```
+
+```{r}
+rec.workers <- read.csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/RecreationData-Wide.csv")
+rec.workers.narrow <- rec.workers %>% pivot_longer(!city:type_of_worker, names_to = "year", values_to = "count")
+  all.paid <- c("male paid", "female paid")
+    all.volunteer <- c("men volunteer", "women volunteer")
+      avg.volunteer <- rec.workers.narrow %>% group_by(year) %>% filter(type_of_worker %in% all.volunteer) %>% summarise(avg.volunteer.count = mean(count, na.rm = TRUE))
+        avg.paid <- rec.workers.narrow %>%  group_by(year) %>% filter(type_of_worker %in% all.paid) %>% summarise(avg.paid.count = mean(count, na.rm = TRUE))
+            paid.and.volunteer <- merge(avg.volunteer, avg.paid, by = "year")
+              rec.workers.longer <- pivot_longer(paid.and.volunteer, !year, names_to = "type.of.workers", values_to = "count")
+ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type.of.workers, color = type.of.workers)) + geom_line() + labs( x = "Year", y= "Number of Workers", Title = "Volunteer and Paid Rec Workers Over Time", color = "Type of Workers") + theme(plot.title = element_text(hjust = 0.5)) + theme_dark() + geom_point()
+```
+
+## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
+
+The North following the end of World War II became more industrialized than it was . They are at home spending time with their family, settling down, and starting a new life. It is at this juncture up until the late 1960s when the United States reached the peak of its influence. A sense of pride and community could be felt throughout the country. This American pride came with the recognition that both the United States and world were spared from the influence of Nazi Germany and Axis alliance. Nazism was understood by many as an ideology which threatened American culture and particularly conservative norms in the U.S. Many of these norms related to patriotism and nationality through conservatism. Consequently, recreational parks were constructed to heal the trauma of World War II and preserve national pride. When discussing the culture of national pride in post-World War II America, it is often discussed the purpose of these parks was to save money and give families an outlet for entertainment to create a shared community. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* recreational parks would serve a fundamental role in encouraging traditional practices and led to an expansion of suburban family life in the United States throughout the 1950s.[^1]
+
+[^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008).
+
+May argues that economic conservatism was a major influence in allowing families to live in a community and encouraged recreation as a means of upholding traditional roles and the American way.[^2] Therefore, recreation can be interpreted as an element of *cultural nationalism.* John Hutchinson's definition of cultural nationalism in John Breuilly's *The Oxford* *Handbook of the History of Nationalism* explains a movement which aimed for the formation of national communities.[^3] According to Hutchinson, "Many cultural nationalists view the possession of independent statehood as essential for the defence of the identity of the nation, for example, by establishing an educational system that will school citizens in their language and history." It is important to recognize that because recreational parks were built to create a sense of American community, this implies a connection to the concept of cultural nationalism. In the "April 1947 Playground Issue" of *Recreation Magazine* by the *National Recreation Association*, the word "nation" is observed fifty-nine times and discusses the way which programs were organized to emphasize patriotism.[^4] Whereas in the issue for
+
+[^2]: May, 163.
+
+[^3]: John Breuilly, *The Oxford Handbook of the History of Nationalism* (Oxford: Oxford University Press, 2013).
+
+[^4]: National Recreation Center, *Recreation Magazine Vol. 41 No. 1* (New York: Playground and Recreation Association of America, 1947).
+
+Upon observing the 1947 to 1968 primary sources of *Recreation Magazine*, we can use data visualization to create a bar plot for seeing how frequently the term "nation" is mentioned for each year. This can help understand the implications of nationhood resulting from recreational parks in post-WWII America as they related to cultural nationalism and was a system which sought to preserve conservative norms.
