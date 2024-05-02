@@ -26,7 +26,7 @@ Through using the tools of data visualization and topic modeling, this analysis 
 
 ## Historical Background
 
-Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized between 1930 and 1960 how the South has a lower pay because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
+Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized how the South has a lower pay because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
 
 [^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
 
@@ -118,6 +118,18 @@ ri.rec <- recreational.data %>%
 ggplot(ri.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
   ggtitle("Expenditure for Rhode Island")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+pa.rec <- recreational.data %>%
+  filter(state == "PA") %>%
+  group_by(state) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(pa.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Expenditure for Pennsylvania")
 ```
 
 ```{r}
