@@ -36,7 +36,7 @@ These would generally be through youth volunteer programs like the Civilian Cons
 
 [^3]: May, 43.
 
-In Thomas Maloney's "Wage Compression and Wage Inequality Between Black and White Males in the United States", it can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] Maloney explains wages were much lower in the South than anywhere else during that period stating, "Black migration to cities both in the South and in other regions caused the proportion urban among blacks to exceed that among whites for the first time by 1960."[^5] This is a sharp contrast between that of states in the North as explained by Lawrence Chidester which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^6]
+In Thomas Maloney's "Wage Compression and Wage Inequality Between Black and White Males in the United States", it can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] Maloney explains wages were lower in the South than anywhere else during that period stating, "Black migration to cities both in the South and in other regions caused the proportion urban among blacks to exceed that among whites for the first time by 1960."[^5] This is a sharp contrast between that of states in the North as explained by Lawrence Chidester which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^6]
 
 [^4]: Thomas N. Maloney, "Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960." *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
 
@@ -260,7 +260,14 @@ ggplot(data_long, aes(x = state, y = value, color = variable)) +
 ```
 
 ```{r}
-#4 
+#4 Representing these populations using a histogram
+
+library(ggplot2)
+recreational.data <- read.csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/Recreation-Expenditures.csv")
+ggplot(recreational.data, aes(x = population)) +
+  geom_histogram(bins = 30)
 ```
 
-## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
+### How Does the Difference in Expenditure for Recreational Workers in the North and South relate to Population?
+
+Given these results, expenditure relates very much with population during the 1930s
