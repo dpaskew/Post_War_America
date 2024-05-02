@@ -206,11 +206,13 @@ The reason why Texas stood out in terms of expenditure was because during the Gr
 
 [^8]: Procter; Cervantez, "Great Depression".
 
-When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.[^9] According to the website, "From 1933 to 1942, hundreds of thousands of unemployed men worked in camps throughout Pennsylvania (...) Some camps were on army bases, some were in national parks \[...\] but most camps were in state parks and forests. \[...\] Pennsylvania had the second highest number of camps (151) to California."[^10] The outlier in the data was South Dakota which had the lowest expenditure out of the rest of the other states. According to "How Reading Got Farm Women Through the Depression" by Livia Gershon, she states that "more than 80 percent of South Dakota's population lived in rural areas in the 1930s. The households suffered immensely from drought, grasshopper infestations, and falling crop prices. \[...\] reading seemed like a justifiable form of leisure."[^11] This is significant because despite initial assumptions the state would have much more potential because of its size, the state had little to no money during the Great Depression, which did not easily allow for recreation.
+When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.[^9] According to the website, "From 1933 to 1942, hundreds of thousands of unemployed men worked in camps throughout Pennsylvania (...) Some camps were on army bases, some were in national parks \[...\] but most camps were in state parks and forests. \[...\] Pennsylvania had the second highest number of camps (151) to California."[^10] The outlier in the data was South Dakota which had the lowest expenditure out of the rest of the other states.
 
 [^9]: Pennsylvania Department of Conservation and Natural Resources, "The Civilian Conservation Corps", May 2, 2024. [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx). Accessed May 2, 2024.
 
 [^10]: Pennsylvania Department of Conservation and Natural Resources, "CCC in Pennsylvania," [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx).
+
+According to "How Reading Got Farm Women Through the Depression" by Livia Gershon, she states that "more than 80 percent of South Dakota's population lived in rural areas in the 1930s. The households suffered immensely from drought, grasshopper infestations, and falling crop prices. \[...\] reading seemed like a justifiable form of leisure."[^11] This is significant because despite initial assumptions the state would have much more potential because of its size, the state had little to no money during the Great Depression, which did not easily allow for recreation.
 
 [^11]: Livia Gershon, "How Reading Got Farm Women Through the Depression," *JSTOR.* May 4, 2020. [How Reading Got Farm Women Through the Depression - JSTOR Daily](https://daily.jstor.org/how-reading-got-farm-women-through-the-depression/). Accessed May 5, 2024.
 
@@ -273,6 +275,10 @@ ggplot(populations_filtered, aes(x = state, y = total_population)) +
   ggtitle("Population in the North in the 1930s")
 ```
 
-### How Does the Difference in Expenditure for Recreational Workers in the North and South relate to Population?
+### How Does the Difference in Expenditure for Recreational Workers in the North and South Relate to Population?
 
-Given these results, expenditure of recreational workers relates very much to state population during the 1930s because of various political and economic circumstances brought on by the Great Depression. Some of these included racial and sexual discrimination, geographical differences between regions of the United States, and they all had an effect one way or another. When elaborating this topic, May describes in her work that "For young single working women in the 1930s, the experience of some form of economic independence, even if it was to help support their families, inhibited them from marrying young and offered an alternative to the role of dependent housewife."
+Given these results, expenditure of recreational workers relates very much to state population during the 1930s because of various political and economic circumstances brought on by the Great Depression. President Roosevelt's New Deal was a significant factor because it allowed for the expansion of federal jobs which led to an increase in populations for states where recreational activity was most apparent. This includes states like Pennsylvania and Texas. In fact, the article "Great Depression" in *The* *Encyclopedia of Greater Philadelphia* by Roger D. Simon states that the relief programs aided the population very much in a way which would encourage growth.[^12]
+
+[^12]: Roger D. Simon, "Great Depression," *The Encyclopedia of Greater Philadelphia.* 2013. [Great Depression - Encyclopedia of Greater Philadelphia (philadelphiaencyclopedia.org)](https://philadelphiaencyclopedia.org/essays/great-depression/). Accessed May 2, 2024.
+
+Population growth was also tied to
