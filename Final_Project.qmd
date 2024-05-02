@@ -49,8 +49,6 @@ In Thomas Maloney's "Wage Compression and Wage Inequality Between Black and Whit
 ```{r}
 #1 Loading libraries
 
-library(tm)
-library(topicmodels)
 library(tidytext)
 library(ggplot2)
 library(dplyr)
@@ -210,19 +208,17 @@ The reason why Texas stood out in terms of expenditure was because during the Gr
 
 [^8]: Procter; Cervantez, "Great Depression".
 
-When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.[^9] According to the website, "From 1933 to 1942, hundreds of thousands of unemployed men worked in camps throughout Pennsylvania (...) Some camps were on army bases, some were in national parks (...) but most camps were in state parks and forests. (...) Pennsylvania had the second highest number of camps (151) to California."[^10] The outlier in the data was South Dakota which
+When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.[^9] According to the website, "From 1933 to 1942, hundreds of thousands of unemployed men worked in camps throughout Pennsylvania (...) Some camps were on army bases, some were in national parks (...) but most camps were in state parks and forests. (...) Pennsylvania had the second highest number of camps (151) to California."[^10] The outlier in the data was South Dakota which had the lowest expenditure out of the rest of the other states. This is significant because despite initial assumptions that the state would have much potential because of its size, there was no official recreational organization until
 
 [^9]: Pennsylvania Department of Conservation and Natural Resources, "The Civilian Conservation Corps", May 2, 2024. [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx). Accessed May 2, 2024.
 
 [^10]: Pennsylvania Department of Conservation and Natural Resources, "CCC in Pennsylvania," [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx).
 
-### This is the second part of my project where I will use data visualization to understand the effect that difference in pay had on populations of these states. 
+### This is the second part of my project where I will use data visualization to understand the effect that difference in expenditures had on populations of these states
 
 ```{r}
-#Loading my libraries
+#1 Loading my libraries
 
-library(tm)
-library(topicmodels)
 library(tidytext)
 library(ggplot2)
 library(dplyr)
@@ -233,7 +229,36 @@ library(tidyverse)
 ```
 
 ```{r}
+#2 Finding the population of different states for the recreational.data
 
+library(dplyr)
+library(ggplot2)
+populations <- recreational.data %>%
+  group_by(state) %>%
+  summarize(total_population = sum(population))
+ggplot(populations, aes(x = state, y = total_population)) +
+  geom_col() +
+  ggtitle("Population in Each State in the 1930s")
+
+
+```
+
+```{r}
+#3 Creating a line graph to demonstrate the relationship between population and expenditures of U.S. states
+
+library(dplyr)
+library(ggplot2)
+data <- recreational.data %>%
+  group_by(state) %>%
+  summarize(total_population = sum(population), total_expenditures = sum(total_expenditures))
+data_long <- tidyr::pivot_longer(data, c(total_population, total_expenditures), names_to = "variable", values_to = "value")
+ggplot(data_long, aes(x = state, y = value, color = variable)) +
+  geom_line() +
+  labs(y = "Value", title = "Population and Expenditures in Each State", color = "Variable")
+```
+
+```{r}
+#4 
 ```
 
 ## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
