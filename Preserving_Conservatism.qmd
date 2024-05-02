@@ -14,13 +14,15 @@ editor: visual
 
 This project will answer a few research questions I have: 
 
-1. What is the difference in pay between recreational workers in New England and Southern states and why does this difference exist?
+1. What is the difference in pay between recreational workers in 1930s New England and Southern states and why did this difference exist based on prominence of recreational potential?
 
 2. How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
 
 ##Introduction
 
-During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This is certainly true when discussing rural vs. urban landscape and  It is certain through using the tool of data visualization and topic modeling, exploring the differences between various states and their expenditures is important and relates to culture. Geography is a major element involved in recognizing the inherent divide between Southern and Northern culture related to pay in expenditures. The project will also address how one should understand the difference in pay as it relates to states with urban and rural geography. This will be accomplished by examining the recreational.data and using these tools to explain the pay gap.
+During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s, through recreation, effectively shaped both regions economically and with regard to population. 
+
+It is certain through using the tool of data visualization and topic modeling, exploring the differences between various states and their expenditures is important and relates to culture. Geography is a major element involved in recognizing the inherent divide between Southern and Northern culture related to pay in expenditures. The project will also address how one should understand the difference in pay as it relates to states with urban and rural geography. This will be accomplished by examining the recreational.data and using these tools to explain the pay gap.
 
 ```{r}
 library(tm)
