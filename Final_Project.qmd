@@ -14,7 +14,7 @@ editor: visual
 
 This project will answer a few research questions I have:
 
-1.  What is the difference in pay between recreational workers in 1930s-1950s New England and Southern states and why did this difference exist based on prominence of recreational potential?
+1.  What is the difference in expenditures between recreational workers in 1930s-1950s New England and Southern states and why did this difference exist based on prominence of recreational potential?
 
 2.  How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
 
@@ -26,13 +26,17 @@ Through using the tools of data visualization and topic modeling, this analysis 
 
 ## Historical Background
 
-Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the income was $2,000 a year for 
+Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized between 1930 and 1960 how the South has a lower pay because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors which allowed for more job opportunities.
 
 [^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
 
-[^2]: National Park Service. \"Civilian Conservation Corps - Theodore Roosevelt National Park (U.S. National Park Service).\" Nps.gov. 2016. https://www.nps.gov/thro/learn/historyculture/civilian-conservation-corps.htm. Accessed May 1, 2024.
+[^2]: National Park Service. "Civilian Conservation Corps - Theodore Roosevelt National Park (U.S. National Park Service)." Nps.gov. 2016. https://www.nps.gov/thro/learn/historyculture/civilian-conservation-corps.htm. Accessed May 1, 2024.
 
-    ‌
+[^3]: May, 43.
+
+[^4]: Thomas N. Maloney, \"Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960.\" *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
+
+# Data Visualization ‌
 
 ```{r}
 library(tm)
@@ -51,17 +55,37 @@ library(word2vec)
 ```{r}
 sc.rec <- recreational.data %>% group_by(state) %>% summarize(state.expenditures = sum(total_expenditures))
 ggplot(sc.rec, aes(x = state, y = state.expenditures )) +
-  geom_col() + ggtitle("Differences in Expenditure Between States")
+  geom_col() + ggtitle("Total Differences in Expenditure Between States")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+sc.rec <- recreational.data %>%
+  filter(state == "SC") %>%
+  group_by(state) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Expenditure for South Carolina")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+sc.rec <- recreational.data %>%
+  filter(state == "SC") %>%
+  group_by(state) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Expenditure for South Carolina")
 ```
 
 ```{r}
 rec.byyear <- recreational.data %>% filter(state == "CT" | state == "NY" | state == "SC") %>% group_by(state, year) %>% summarize(count = n())
 ggplot(rec.byyear, aes(x = state, y = count)) +
   geom_bar()
-```
-
-```{r}
-
 ```
 
 ```{r}
