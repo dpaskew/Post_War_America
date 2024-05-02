@@ -8,13 +8,13 @@ editor: visual
 
 ### David P. Askew
 
-#For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s up to 1960.
+For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s.
 
 ## What is the Purpose of This Project?
 
 This project will answer a few research questions I have:
 
-1.  What is the difference in expenditures between recreational workers ins New England and Southern states during the 1930s and why did this difference exist based on prominence of recreational potential?
+1.  What is the difference in expenditures between recreational workers in Northern and Southern states during the 1930s and why did this difference exist based on prominence of recreational potential?
 
 2.  How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
 
@@ -22,7 +22,7 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s-1960s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
 
 ## Historical Background
 
@@ -30,7 +30,7 @@ Recreation had a tremendous impact on workers in many U.S. states and effectivel
 
 [^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
 
-These would generally be through youth volunteer programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
+These would generally be through youth volunteer programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in the North which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
 
 [^2]: National Park Service. "Civilian Conservation Corps - Theodore Roosevelt National Park (U.S. National Park Service)." Nps.gov. 2016. https://www.nps.gov/thro/learn/historyculture/civilian-conservation-corps.htm. Accessed May 1, 2024.
 
@@ -171,17 +171,17 @@ ggplot(pa.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
-#7 Creating a line graph for total expenditures in New England during the 1930s (RI and PA)
+#7 Creating a line graph for total expenditures in the North during the 1930s (SD, RI, and PA)
 
 library(dplyr)
 library(ggplot2)
 rec.data <- recreational.data %>%
-  filter(state %in% c("RI", "PA")) %>%
+  filter(state %in% c("SD", "RI", "PA")) %>%
   group_by(state, year) %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
   geom_line() +
-  ggtitle("Total Expenditures for New England Over Time in the 1930s")
+  ggtitle("Total Expenditures for the North Over Time in the 1930s")
 ```
 
 ```{r}
@@ -200,12 +200,16 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 
 ## Findings
 
-My analysis on the difference in expenditures for New England and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North.
+My analysis on the difference in expenditures for Northern and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North. This had to deal with differences in geography and
 
-The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^6] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^7]
+The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^6] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^7] Therefore, based on this secondary source and the data demonstrated by my analysis, Texas was the state with the most potential for recreation.
 
-[^6]: Ben H. Procter; Brian A. Cervantez, \"Great Depression,\" *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
+[^6]: Ben H. Procter; Brian A. Cervantez, "Great Depression," *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
 
 [^7]: Procter; Cervantez, "Great Depression".
+
+```{r}
+
+```
 
 ## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
