@@ -22,7 +22,7 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+Through using the tools of data visualization, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions during the 1930s and the effect it had on their economy and geography.
 
 ## Historical Background
 
@@ -123,9 +123,7 @@ rec.data <- recreational.data %>%
   filter(state %in% c("SC", "TN", "TX")) %>%
   group_by(state, year) %>%
   summarize(state.expenditures = sum(total_expenditures))
-ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
-  geom_line() +
-  ggtitle("Total Expenditures for the South Over Time in the 1930s")
+print(ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) + geom_line() + ggtitle("Total Expenditures for the South Over Time in the 1930s"))
 ```
 
 ```{r}
@@ -248,26 +246,33 @@ ggplot(populations, aes(x = state, y = total_population)) +
 ```{r}
 #3 Creating a line graph to demonstrate the relationship between population and expenditures of U.S. states
 
-library(dplyr)
-library(ggplot2)
-data <- recreational.data %>%
-  group_by(state) %>%
-  summarize(total_population = sum(population), total_expenditures = sum(total_expenditures))
-data_long <- tidyr::pivot_longer(data, c(total_population, total_expenditures), names_to = "variable", values_to = "value")
-ggplot(data_long, aes(x = state, y = value, color = variable)) +
-  geom_line() +
+data_long_ordered <- data_long %>%
+  arrange(state)
+ggplot(data_long_ordered, aes(x = state, y = value, color = variable, group = variable)) +
+  geom_path() +
   labs(y = "Value", title = "Population and Expenditures in Each State", color = "Variable")
 ```
 
 ```{r}
-#4 Representing these populations using a histogram
+#4 Scatterplot showing population in the South in the 1930s
 
-library(ggplot2)
-recreational.data <- read.csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/Recreation-Expenditures.csv")
-ggplot(recreational.data, aes(x = population)) +
-  geom_histogram(bins = 30)
+populations_filtered <- populations %>%
+  filter(state %in% c("SC", "TN", "TX"))
+ggplot(populations_filtered, aes(x = state, y = total_population)) +
+  geom_point() +
+  ggtitle("Population in the South in the 1930s")
+```
+
+```{r}
+#5 Scatterplot showing population in the North in the 1930s
+
+populations_filtered <- populations %>%
+  filter(state %in% c("SD", "RI", "PA"))
+ggplot(populations_filtered, aes(x = state, y = total_population)) +
+  geom_point() +
+  ggtitle("Population in the North in the 1930s")
 ```
 
 ### How Does the Difference in Expenditure for Recreational Workers in the North and South relate to Population?
 
-Given these results, expenditure relates very much with population during the 1930s
+Given these results, expenditure relates very much to state population during the 1930s because of various political and economic circumstances brought on by the Great Depression. Some of these included racial and sexual discrimination, geographical differences between regions of the United States, and they all had an effect on both the South and North in different ways. Since racial discrimination was more prominent in the South,
