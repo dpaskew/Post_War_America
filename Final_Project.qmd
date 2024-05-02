@@ -1,5 +1,5 @@
 ---
-title: "Differences in U.S. Expenditure Pay for Recreational Workers in States of Pre-WWII America and its Effect on Population and Culture"
+title: "Differences in U.S. Expenditure Pay for Recreational Workers in States of America from 1930-1959 and its Effect on Population and Culture"
 name: David P. Askew
 date: 5/1/2024
 format: html
@@ -8,25 +8,31 @@ editor: visual
 
 ### David P. Askew
 
-#For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s. 
+#For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s up to 1959.
 
 ## What is the Purpose of This Project?
 
-This project will answer a few research questions I have: 
+This project will answer a few research questions I have:
 
-1. What is the difference in pay between recreational workers in 1930s New England and Southern states and why did this difference exist based on prominence of recreational potential?
+1.  What is the difference in pay between recreational workers in 1930s-1950s New England and Southern states and why did this difference exist based on prominence of recreational potential?
 
-2. How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
+2.  How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
 
-##Introduction
+## Introduction
 
-During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s, through recreation, effectively shaped both regions economically and with regard to population. 
+During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s-1950s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s-1950s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
 
-##Historical Background
+## Historical Background
 
-This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. May explains that during the mid-1930s, recreation had increased rapidly for many Americans by approximately 185 percent.
+Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the income was $2,000 a year for 
+
+[^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
+
+[^2]: National Park Service. \"Civilian Conservation Corps - Theodore Roosevelt National Park (U.S. National Park Service).\" Nps.gov. 2016. https://www.nps.gov/thro/learn/historyculture/civilian-conservation-corps.htm. Accessed May 1, 2024.
+
+    ‌
 
 ```{r}
 library(tm)
@@ -47,8 +53,6 @@ sc.rec <- recreational.data %>% group_by(state) %>% summarize(state.expenditures
 ggplot(sc.rec, aes(x = state, y = state.expenditures )) +
   geom_col() + ggtitle("Differences in Expenditure Between States")
 ```
-
-Based on this graph, it can be observed how states like Pennsylvania and Texas pay more because a few factors. One involves the amount of inhabitable land both have compared to smaller or less populated states like Rhode Island, South Carolina, and South Dakota. Upon observing a bar plot of South Carolina, it shows very little expenditure in the recreational data. According to the *South Carolina Encyclopedia,* prior to 1967, the South Carolina Department of Parks,
 
 ```{r}
 rec.byyear <- recreational.data %>% filter(state == "CT" | state == "NY" | state == "SC") %>% group_by(state, year) %>% summarize(count = n())
@@ -73,17 +77,3 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 ```
 
 ## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
-
-The North following the end of World War II became more industrialized than it was . They are at home spending time with their family, settling down, and starting a new life. It is at this juncture up until the late 1960s when the United States reached the peak of its influence. A sense of pride and community could be felt throughout the country. This American pride came with the recognition that both the United States and world were spared from the influence of Nazi Germany and Axis alliance. Nazism was understood by many as an ideology which threatened American culture and particularly conservative norms in the U.S. Many of these norms related to patriotism and nationality through conservatism. Consequently, recreational parks were constructed to heal the trauma of World War II and preserve national pride. When discussing the culture of national pride in post-World War II America, it is often discussed the purpose of these parks was to save money and give families an outlet for entertainment to create a shared community. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* recreational parks would serve a fundamental role in encouraging traditional practices and led to an expansion of suburban family life in the United States throughout the 1950s.[^1]
-
-[^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008).
-
-May argues that economic conservatism was a major influence in allowing families to live in a community and encouraged recreation as a means of upholding traditional roles and the American way.[^2] Therefore, recreation can be interpreted as an element of *cultural nationalism.* John Hutchinson's definition of cultural nationalism in John Breuilly's *The Oxford* *Handbook of the History of Nationalism* explains a movement which aimed for the formation of national communities.[^3] According to Hutchinson, "Many cultural nationalists view the possession of independent statehood as essential for the defence of the identity of the nation, for example, by establishing an educational system that will school citizens in their language and history." It is important to recognize that because recreational parks were built to create a sense of American community, this implies a connection to the concept of cultural nationalism. In the "April 1947 Playground Issue" of *Recreation Magazine* by the *National Recreation Association*, the word "nation" is observed fifty-nine times and discusses the way which programs were organized to emphasize patriotism.[^4] Whereas in the issue for
-
-[^2]: May, 163.
-
-[^3]: John Breuilly, *The Oxford Handbook of the History of Nationalism* (Oxford: Oxford University Press, 2013).
-
-[^4]: National Recreation Center, *Recreation Magazine Vol. 41 No. 1* (New York: Playground and Recreation Association of America, 1947).
-
-Upon observing the 1947 to 1968 primary sources of *Recreation Magazine*, we can use data visualization to create a bar plot for seeing how frequently the term "nation" is mentioned for each year. This can help understand the implications of nationhood resulting from recreational parks in post-WWII America as they related to cultural nationalism and was a system which sought to preserve conservative norms.
