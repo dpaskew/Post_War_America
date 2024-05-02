@@ -8,13 +8,13 @@ editor: visual
 
 ### David P. Askew
 
-#For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s up to 1959.
+#For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s up to 1960.
 
 ## What is the Purpose of This Project?
 
 This project will answer a few research questions I have:
 
-1.  What is the difference in expenditures between recreational workers in 1930s-1950s New England and Southern states and why did this difference exist based on prominence of recreational potential?
+1.  What is the difference in expenditures between recreational workers in 1930s-1960s New England and Southern states and why did this difference exist based on prominence of recreational potential?
 
 2.  How does the difference in pay affect the population of people in these states? What can it tell us about the effect it has on cultures between regions in the United States?
 
@@ -22,11 +22,11 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s-1950s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s-1950s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s-1960s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s-1960s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
 
 ## Historical Background
 
-Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized between 1930 and 1960 how the South has a lower pay because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors which allowed for more job opportunities.
+Recreation had a tremendous impact on workers in many U.S. states and effectively shaped their culture. This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s-1950s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. According to Elaine Tyler May's *Homeward Bound: American Families in the Cold War Era,* May explains that during the 1930s, recreation had gradually increased for many Americans leading up to the 1940s. This was primarily because the economic crisis brought on by the Great Depression left many in need for jobs which is where FDR's New Deal would attempt to resolve this issue.[^1] The New Deal was effective in ways that despite eliminating poverty or solving the economic crisis, helped to ease suffering by giving federal occupations to people in need of work. These would generally be through youth programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized between 1930 and 1960 how the South has a lower pay because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in New England which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
 
 [^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
 
@@ -35,6 +35,8 @@ Recreation had a tremendous impact on workers in many U.S. states and effectivel
 [^3]: May, 43.
 
 [^4]: Thomas N. Maloney, \"Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960.\" *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
+
+[^5]: Lawrence W. Chidester, \"The Importance of Recreation as a Land Use in New England.\" *The Journal of Land & Public Utility Economics* 10, no. 2 (1934): 202--9. https://doi.org/10.2307/3138921. Accessed May 2, 2024.
 
 # Data Visualization ‌
 
@@ -73,19 +75,29 @@ ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
 ```{r}
 library(dplyr)
 library(ggplot2)
-sc.rec <- recreational.data %>%
-  filter(state == "SC") %>%
+tn.rec <- recreational.data %>%
+  filter(state == "TN") %>%
   group_by(state) %>%
   summarize(state.expenditures = sum(total_expenditures))
-ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
+ggplot(tn.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for South Carolina")
+  ggtitle("Expenditure for Tennessee")
 ```
 
 ```{r}
-rec.byyear <- recreational.data %>% filter(state == "CT" | state == "NY" | state == "SC") %>% group_by(state, year) %>% summarize(count = n())
-ggplot(rec.byyear, aes(x = state, y = count)) +
-  geom_bar()
+library(dplyr)
+library(ggplot2)
+
+# Filter the data for South Carolina and Tennessee and combine them
+rec.data <- recreational.data %>%
+  filter(state %in% c("SC", "TN")) %>%
+  group_by(state, Year) %>%  # replace 'Year' with your actual column name
+  summarize(state.expenditures = sum(total_expenditures))
+
+# Plot the data
+ggplot(rec.data, aes(x = Year, y = state.expenditures, color = state, group = state)) +
+  geom_line() +
+  ggtitle("Expenditure for South Carolina and Tennessee Over Time")
 ```
 
 ```{r}
