@@ -22,7 +22,7 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures. I will also use the Recreation Magazine data for topic modeling with the effect on culture.
 
 ## Historical Background
 
@@ -30,15 +30,19 @@ Recreation had a tremendous impact on workers in many U.S. states and effectivel
 
 [^1]: Elaine Tyler May, *Homeward Bound: American Families in the Cold War Era* (New York: Basic Books, 2008), 41.
 
-These would generally be through youth volunteer programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was. It can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] This is a sharp contrast between that of states in the North which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^5]
+These would generally be through youth volunteer programs like the Civilian Conservation Corps where young, single Americans would work at camps for \$30 a month.[^2] May also states that the median income for most families was \$2,000 a year by 1941 and many movies during the 1930s emphasized dealing with the hardship of the Depression through the equal roles of men and women at work.[^3] There was a collective effort for families to overcome the hardship through labor and this was apparent in many cultural aspects of the United States at the time. By looking at the difference of expenditures between states, we can understand how impactful this period was.
 
 [^2]: National Park Service. "Civilian Conservation Corps - Theodore Roosevelt National Park (U.S. National Park Service)." Nps.gov. 2016. https://www.nps.gov/thro/learn/historyculture/civilian-conservation-corps.htm. Accessed May 1, 2024.
 
 [^3]: May, 43.
 
+In Thomas Maloney's "Wage Compression and Wage Inequality Between Black and White Males in the United States", it can be recognized how the South has a lower expenditure because of discrimination from these workers being mostly African American.[^4] Maloney explains wages were much lower in the South than anywhere else during that period stating, "Black migration to cities both in the South and in other regions caused the proportion urban among blacks to exceed that among whites for the first time by 1960."[^5] This is a sharp contrast between that of states in the North as explained by Lawrence Chidester which had a well-established vacation industry for visitors like hotels, lodging, restaurants, and campgrounds which allowed for more job opportunities and higher wages.[^6]
+
 [^4]: Thomas N. Maloney, "Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960." *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
 
-[^5]: Lawrence W. Chidester, "The Importance of Recreation as a Land Use in New England." *The Journal of Land & Public Utility Economics* 10, no. 2 (1934): 202--9. https://doi.org/10.2307/3138921. Accessed May 2, 2024.
+[^5]: Maloney, 367.
+
+[^6]: Lawrence W. Chidester, "The Importance of Recreation as a Land Use in New England." *The Journal of Land & Public Utility Economics* 10, no. 2 (1934): 202--9. https://doi.org/10.2307/3138921. Accessed May 2, 2024.
 
 ## Data Visualization ‌
 
@@ -200,13 +204,15 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 
 ## Findings
 
-My analysis on the difference in expenditures for Northern and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North. This had to deal with differences in geography and
+My analysis on the difference in expenditures for Northern and Southern states during the 1930s as well as their impact on recreational workers demonstrates as time went on, the number of workers gradually increased, and the economy improved into the 1940s. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North. This had to deal with differences in geography particularly regarding urban vs. rural landscapes and
 
-The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^6] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^7] Therefore, based on this secondary source and the data demonstrated by my analysis, Texas was the state with the most potential for recreation.
+The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^7] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^8] Therefore, based on this secondary source and the data demonstrated by my analysis, Texas was the state with the most potential for recreation in the South.
 
-[^6]: Ben H. Procter; Brian A. Cervantez, "Great Depression," *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
+[^7]: Ben H. Procter; Brian A. Cervantez, "Great Depression," *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
 
-[^7]: Procter; Cervantez, "Great Depression".
+[^8]: Procter; Cervantez, "Great Depression".
+
+When looking at the North
 
 ```{r}
 
