@@ -67,11 +67,11 @@ recreational.data <- readr::read_csv("https://raw.githubusercontent.com/regan008
 
 sc.rec <- recreational.data %>% group_by(state) %>% summarize(state.expenditures = sum(total_expenditures))
 ggplot(sc.rec, aes(x = state, y = state.expenditures )) +
-  geom_col() + ggtitle("Total Differences in Expenditure Between States")
+  geom_col() + ggtitle("Total Differences in Expenditure Between States in the 1930s")
 ```
 
 ```{r}
-#3 Creating a bar plot for individual expenditure in South Carolina during the 1930s
+#3 Creating a bar plot for total expenditure in South Carolina during the 1930s
 
 library(dplyr)
 library(ggplot2)
@@ -81,11 +81,11 @@ sc.rec <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for South Carolina")
+  ggtitle("Total Expenditure for South Carolina in the 1930s")
 ```
 
 ```{r}
-#3 Creating a bar plot for individual expenditure in Tennessee during the 1930s
+#3 Creating a bar plot for total expenditure in Tennessee during the 1930s
 
 library(dplyr)
 library(ggplot2)
@@ -95,11 +95,11 @@ tn.rec <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(tn.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for Tennessee")
+  ggtitle("Total Expenditure for Tennessee in the 1930s")
 ```
 
 ```{r}
-#4 Creating a bar plot for individual expenditure in Texas during the 1930s
+#4 Creating a bar plot for total expenditure in Texas during the 1930s
 
 library(dplyr)
 library(ggplot2)
@@ -109,11 +109,11 @@ tx.rec <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(tx.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for Texas")
+  ggtitle("Total Expenditure for Texas in the 1930s")
 ```
 
 ```{r}
-#4 Creating a line graph for expenditure in the South during the 1930s (SC, TN, TX)
+#4 Creating a line graph for total expenditures in the South during the 1930s (SC, TN, TX)
 
 library(dplyr)
 library(ggplot2)
@@ -123,11 +123,25 @@ rec.data <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
   geom_line() +
-  ggtitle("Expenditures for the South Over Time")
+  ggtitle("Total Expenditures for the South Over Time in the 1930s")
 ```
 
 ```{r}
-#5 Creating a bar plot for individual expenditure in Rhode Island during the 1930s
+#5 Creating a bar plot for total expenditure in South Dakota during the 1930s
+
+library(dplyr)
+library(ggplot2)
+sd.rec <- recreational.data %>%
+  filter(state == "SD") %>%
+  group_by(state) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(sd.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Total Expenditure for South Dakota in the 1930s")
+```
+
+```{r}
+#6 Creating a bar plot for total expenditure in Rhode Island during the 1930s
 
 library(dplyr)
 library(ggplot2)
@@ -137,11 +151,11 @@ ri.rec <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(ri.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for Rhode Island")
+  ggtitle("Total Expenditure for Rhode Island in the 1930s")
 ```
 
 ```{r}
-#6 Creating a bar plot for individual expenditure in Pennsylvania during the 1930s
+#6 Creating a bar plot for total expenditure in Pennsylvania during the 1930s
 
 library(dplyr)
 library(ggplot2)
@@ -151,11 +165,11 @@ pa.rec <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(pa.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
-  ggtitle("Expenditure for Pennsylvania")
+  ggtitle("Total Expenditure for Pennsylvania in the 1930s")
 ```
 
 ```{r}
-#7 Creating a line graph for expenditure in New England during the 1930s (RI and PA)
+#7 Creating a line graph for total expenditures in New England during the 1930s (RI and PA)
 
 library(dplyr)
 library(ggplot2)
@@ -165,11 +179,11 @@ rec.data <- recreational.data %>%
   summarize(state.expenditures = sum(total_expenditures))
 ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
   geom_line() +
-  ggtitle("Expenditures for New England Over Time")
+  ggtitle("Total Expenditures for New England Over Time in the 1930s")
 ```
 
 ```{r}
-#8 
+#8 Creating a line graph that shows the average paid recreational workers compared with that of volunteers over time from the 1930s to 1945.
 
 rec.workers <- read.csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/RecreationData-Wide.csv")
 rec.workers.narrow <- rec.workers %>% pivot_longer(!city:type_of_worker, names_to = "year", values_to = "count")
@@ -184,6 +198,10 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 
 #Findings
 
-My analysis on the difference in expenditures for New England and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests this 
+My analysis on the difference in expenditures for New England and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North.
+
+The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^6] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing national parks
+
+[^6]: Ben H. Procter; Brian A. Cervantez, \"Great Depression,\" *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
 
 ## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
