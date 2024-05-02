@@ -87,17 +87,37 @@ ggplot(tn.rec, aes(x = state, y = state.expenditures)) +
 ```{r}
 library(dplyr)
 library(ggplot2)
-
-# Filter the data for South Carolina and Tennessee and combine them
-rec.data <- recreational.data %>%
-  filter(state %in% c("SC", "TN")) %>%
-  group_by(state, Year) %>%  # replace 'Year' with your actual column name
+tx.rec <- recreational.data %>%
+  filter(state == "TX") %>%
+  group_by(state) %>%
   summarize(state.expenditures = sum(total_expenditures))
+ggplot(tx.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Expenditure for Texas")
+```
 
-# Plot the data
-ggplot(rec.data, aes(x = Year, y = state.expenditures, color = state, group = state)) +
+```{r}
+library(dplyr)
+library(ggplot2)
+rec.data <- recreational.data %>%
+  filter(state %in% c("SC", "TN", "TX")) %>%
+  group_by(state, year) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
   geom_line() +
-  ggtitle("Expenditure for South Carolina and Tennessee Over Time")
+  ggtitle("Expenditures for the South Over Time")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+ri.rec <- recreational.data %>%
+  filter(state == "RI") %>%
+  group_by(state) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(ri.rec, aes(x = state, y = state.expenditures)) +
+  geom_col() +
+  ggtitle("Expenditure for Rhode Island")
 ```
 
 ```{r}
