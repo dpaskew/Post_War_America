@@ -281,4 +281,8 @@ Given these results, expenditure of recreational workers relates very much to st
 
 [^12]: Roger D. Simon, "Great Depression," *The Encyclopedia of Greater Philadelphia.* 2013. [Great Depression - Encyclopedia of Greater Philadelphia (philadelphiaencyclopedia.org)](https://philadelphiaencyclopedia.org/essays/great-depression/). Accessed May 2, 2024.
 
-Population growth was also tied to
+Population was very much affected in different states by however much the government funded recreational programs for each one. It also depended on the geography of a state which could allow for recreation to thrive. For example, in states like
+
+## Conclusion
+
+It is intriguing to see from my analysis the way which populations fluctuated in different states, based on the recreational expenditure, and tied to however prominent recreational activity was in each state. Recognizing the difference in populations of Southern vs Northern states makes sense when considering the divide between rural and urban geography. The rural states like South Carolina and South Dakota have a lower population density because they received less government funding
