@@ -204,15 +204,15 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 
 ## Findings
 
-My analysis on the difference in expenditures for Northern and Southern states during the 1930s as well as their impact on recreational workers demonstrates as time went on, the number of workers gradually increased, and the economy improved into the 1940s. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North. This had to deal with differences in geography particularly regarding urban vs. rural landscapes and
+My analysis on the difference in expenditures for Northern and Southern states during the 1930s as well as their impact on recreational workers demonstrates as time went on, the number of workers gradually increased, and the economy improved into the 1940s. Additionally, the data suggests that Southern states, with the exception of Texas, paid lower expenditures than the North. This had to deal with differences in geography particularly regarding urban vs. rural landscapes and whether these states were affected as badly by the Dust Bowl.
 
-The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^7] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^8] Therefore, based on this secondary source and the data demonstrated by my analysis, Texas was the state with the most potential for recreation in the South.
+The reason why Texas stood out in terms of expenditure was because during the Great Depression, according to the Texas State Historical Association, the state was the epicenter of the Civilian Conservation Corps programs.[^7] In the article "Great Depression" by Ben Procter and Brian Cervantez, "The CCC, a nationwide program, for young men that focused on natural resources from 1933 to 1942, was very active in Texas. At its peak in 1935 the corps had twenty seven camps in Texas constructing recreational parks and an additional seventy camps for work in forest and soil conservation."[^8] This also deals with the fact that Texas was one of the states in the Dust Bowl and this affected it greatly. The desperation caused by these hard times manifested in the form of recreation. Therefore, based on this secondary source and the data demonstrated by my analysis, Texas was the state with the most potential for recreation in the South which led to higher expenditures.
 
 [^7]: Ben H. Procter; Brian A. Cervantez, "Great Depression," *Handbook of Texas Online,* October 1, 1995, Accessed May 02, 2024, https://www.tshaonline.org/handbook/entries/great-depression.
 
 [^8]: Procter; Cervantez, "Great Depression".
 
-When looking at the North
+When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.
 
 ```{r}
 
