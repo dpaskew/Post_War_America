@@ -1,5 +1,5 @@
 ---
-title: "Differences in U.S. Expenditure Pay for Recreational Workers in Pre-WWII North and South and the Effect on Population and Culture"
+title: "Differences in U.S. Expenditure Pay for Recreational Workers in States of Pre-WWII America and its Effect on Population and Culture"
 name: David P. Askew
 date: 5/1/2024
 format: html
@@ -26,7 +26,7 @@ Through using the tools of data visualization and topic modeling, this analysis 
 
 ##Historical Background
 
-This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. 
+This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. May explains that during the mid-1930s, recreation had increased rapidly for many Americans by approximately 185 percent.
 
 ```{r}
 library(tm)
