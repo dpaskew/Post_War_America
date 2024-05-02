@@ -1,5 +1,5 @@
 ---
-title: "Difference in U.S. Expenditure Pay for Recreational Workers in Pre World War II North and South"
+title: "Differences in U.S. Expenditure Pay for Recreational Workers in Pre-WWII North and South and the Effect on Population and Culture"
 name: David P. Askew
 date: 5/1/2024
 format: html
@@ -22,7 +22,11 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s, through recreation, effectively shaped both regions economically and with regard to population. 
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s, we can better understand the differences in pay for recreational workers in those states. The second half of this research will 
+Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
+
+##Historical Background
+
+This project analyzes and compares the differences between Northern and Southern states related to pay toward recreational workers in the 1930s based on prominence of recreation and impact it has on population of people in those states as well as their cultures. 
 
 ```{r}
 library(tm)
