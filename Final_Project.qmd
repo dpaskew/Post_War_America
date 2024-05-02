@@ -34,9 +34,9 @@ Recreation had a tremendous impact on workers in many U.S. states and effectivel
 
 [^3]: May, 43.
 
-[^4]: Thomas N. Maloney, \"Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960.\" *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
+[^4]: Thomas N. Maloney, "Wage Compression and Wage Inequality Between Black and White Males in the United States, 1940-1960." *The Journal of Economic History* 54, no. 2 (1994): 358--81. http://www.jstor.org/stable/2123918. Accessed May 2, 2024.
 
-[^5]: Lawrence W. Chidester, \"The Importance of Recreation as a Land Use in New England.\" *The Journal of Land & Public Utility Economics* 10, no. 2 (1934): 202--9. https://doi.org/10.2307/3138921. Accessed May 2, 2024.
+[^5]: Lawrence W. Chidester, "The Importance of Recreation as a Land Use in New England." *The Journal of Land & Public Utility Economics* 10, no. 2 (1934): 202--9. https://doi.org/10.2307/3138921. Accessed May 2, 2024.
 
 # Data Visualization ‌
 
@@ -52,6 +52,10 @@ library(stringr)
 library(tidyverse)
 library(word2vec)
 
+```
+
+```{r}
+recreational.data <- read_csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/Recreation-Expenditures.csv")
 ```
 
 ```{r}
@@ -130,6 +134,18 @@ pa.rec <- recreational.data %>%
 ggplot(pa.rec, aes(x = state, y = state.expenditures)) +
   geom_col() +
   ggtitle("Expenditure for Pennsylvania")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+rec.data <- recreational.data %>%
+  filter(state %in% c("RI", "PA")) %>%
+  group_by(state, year) %>%
+  summarize(state.expenditures = sum(total_expenditures))
+ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = state)) +
+  geom_line() +
+  ggtitle("Expenditures for New England Over Time")
 ```
 
 ```{r}
