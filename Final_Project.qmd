@@ -41,6 +41,8 @@ Recreation had a tremendous impact on workers in many U.S. states and effectivel
 # Data Visualization ‌
 
 ```{r}
+#1 Loading libraries
+
 library(tm)
 library(topicmodels)
 library(tidytext)
@@ -55,16 +57,22 @@ library(word2vec)
 ```
 
 ```{r}
+#2 Reading data
+
 recreational.data <- readr::read_csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/Recreation-Expenditures.csv")
 ```
 
 ```{r}
+#3 Creating a bar plot that demonstrates total differences in expenditure between states during the 1930s
+
 sc.rec <- recreational.data %>% group_by(state) %>% summarize(state.expenditures = sum(total_expenditures))
 ggplot(sc.rec, aes(x = state, y = state.expenditures )) +
   geom_col() + ggtitle("Total Differences in Expenditure Between States")
 ```
 
 ```{r}
+#3 Creating a bar plot for individual expenditure in South Carolina during the 1930s
+
 library(dplyr)
 library(ggplot2)
 sc.rec <- recreational.data %>%
@@ -77,6 +85,8 @@ ggplot(sc.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
+#3 Creating a bar plot for individual expenditure in Tennessee during the 1930s
+
 library(dplyr)
 library(ggplot2)
 tn.rec <- recreational.data %>%
@@ -89,6 +99,8 @@ ggplot(tn.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
+#4 Creating a bar plot for individual expenditure in Texas during the 1930s
+
 library(dplyr)
 library(ggplot2)
 tx.rec <- recreational.data %>%
@@ -101,6 +113,8 @@ ggplot(tx.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
+#4 Creating a line graph for expenditure in the South during the 1930s (SC, TN, TX)
+
 library(dplyr)
 library(ggplot2)
 rec.data <- recreational.data %>%
@@ -113,6 +127,8 @@ ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = st
 ```
 
 ```{r}
+#5 Creating a bar plot for individual expenditure in Rhode Island during the 1930s
+
 library(dplyr)
 library(ggplot2)
 ri.rec <- recreational.data %>%
@@ -125,6 +141,8 @@ ggplot(ri.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
+#6 Creating a bar plot for individual expenditure in Pennsylvania during the 1930s
+
 library(dplyr)
 library(ggplot2)
 pa.rec <- recreational.data %>%
@@ -137,6 +155,8 @@ ggplot(pa.rec, aes(x = state, y = state.expenditures)) +
 ```
 
 ```{r}
+#7 Creating a line graph for expenditure in New England during the 1930s (RI and PA)
+
 library(dplyr)
 library(ggplot2)
 rec.data <- recreational.data %>%
@@ -149,6 +169,8 @@ ggplot(rec.data, aes(x = year, y = state.expenditures, color = state, group = st
 ```
 
 ```{r}
+#8 
+
 rec.workers <- read.csv("https://raw.githubusercontent.com/regan008/DigitalMethodsData/main/raw/RecreationData-Wide.csv")
 rec.workers.narrow <- rec.workers %>% pivot_longer(!city:type_of_worker, names_to = "year", values_to = "count")
   all.paid <- c("male paid", "female paid")
@@ -162,6 +184,6 @@ ggplot(data = rec.workers.longer, mapping = aes(x = year, y= count, group = type
 
 #Findings
 
-My analysis on the difference in expenditures for New England and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests this was based on 
+My analysis on the difference in expenditures for New England and Southern states during the 1930s as well as their impact on recreational workers demonstrates that as time went on, the number of workers gradually increased and the economy improved. Additionally, the data suggests this 
 
 ## How Does the Difference in Pay for Recreational Workers in the North and South Relate to Cultural Division in Post World War II America?
