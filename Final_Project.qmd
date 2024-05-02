@@ -8,7 +8,7 @@ editor: visual
 
 ### David P. Askew
 
-For the final project, I am using digital tools like data visualization and topic modeling to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s.
+For the final project, I am using digital tools like data visualization to examine, compare, and contrast expenditure pay in different regions of the United States during the 1930s.
 
 ## What is the Purpose of This Project?
 
@@ -22,7 +22,7 @@ This project will answer a few research questions I have:
 
 During the 1930s, the North and South were starkly different regions of the United States as they existed at the time with different populations. This certainly applies to the difference in pay based on the amount of recreational activities between states and how much of it applied to an economic contrast. The major differences between the North and South culturally can still be felt to this day. However it is important recognize the way which the 1930s to 1950s, through recreation, effectively shaped both regions economically and with regard to population.
 
-Through using the tools of data visualization and topic modeling, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures. I will also use the Recreation Magazine data for topic modeling with the effect on culture.
+Through using the tools of data visualization, this analysis will aim to explore how recreation during the 1930s had an impact on both pay and the population of Northern and Southern states. By examining the prominence of recreation in different states in the 1930s based on population data, we can better understand the differences in pay for recreational workers in those states. The second half of this research will observe how the difference in pay affected the populations of those states in different regions and the effect it had on their cultures.
 
 ## Historical Background
 
@@ -58,8 +58,6 @@ library(tidyr)
 library(readr)
 library(stringr)
 library(tidyverse)
-library(word2vec)
-
 ```
 
 ```{r}
@@ -212,7 +210,27 @@ The reason why Texas stood out in terms of expenditure was because during the Gr
 
 [^8]: Procter; Cervantez, "Great Depression".
 
-When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.
+When looking at the North, the highest expenditure was in Pennsylvania for similar reasons as with Texas in the South. As explained by the *Pennsylvania Department of Conservation and Natural Resources*, Pennsylvania was the state with the most potential in the North for its parks, forests, and mountains.[^9] According to the website, "From 1933 to 1942, hundreds of thousands of unemployed men worked in camps throughout Pennsylvania (...) Some camps were on army bases, some were in national parks (...) but most camps were in state parks and forests. (...) Pennsylvania had the second highest number of camps (151) to California."[^10] The outlier in the data was South Dakota which
+
+[^9]: Pennsylvania Department of Conservation and Natural Resources, "The Civilian Conservation Corps", May 2, 2024. [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx). Accessed May 2, 2024.
+
+[^10]: Pennsylvania Department of Conservation and Natural Resources, "CCC in Pennsylvania," [CCC Years (pa.gov)](https://www.dcnr.pa.gov/StateParks/History/CCCYears/Pages/default.aspx).
+
+### This is the second part of my project where I will use data visualization to understand the effect that difference in pay had on populations of these states. 
+
+```{r}
+#Loading my libraries
+
+library(tm)
+library(topicmodels)
+library(tidytext)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(stringr)
+library(tidyverse)
+```
 
 ```{r}
 
